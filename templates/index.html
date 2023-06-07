@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Water Classifier</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Water Class Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    <div class="input-c">
+    	<input type="text" name="experience" placeholder="Dissolved Oxygen (mg/L) (Min)" required="required" />
+        <input type="text" name="test_score" placeholder="Dissolved Oxygen (mg/L) (Max)" required="required" />
+		<input type="text" name="interview_score1" placeholder="pH (Min)" required="required" />
+		<input type="text" name="interview_score2" placeholder="pH (Max)" required="required" />
+		<input type="text" name="interview_score3" placeholder="Conductivity (mhos/cm) (Min)" required="required" />
+		<input type="text" name="interview_score4" placeholder="Conductivity (mhos/cm) (Max)" required="required" />
+		<input type="text" name="interview_score5" placeholder="BOD (mg/L) (Min)" required="required" />
+		<input type="text" name="interview_score6" placeholder="BOD (mg/L) (Max)" required="required" />
+		<input type="text" name="interview_score7" placeholder="Nitrate N + Nitrite N(mg/L) (Min)" required="required" />
+		<input type="text" name="interview_score8" placeholder="Nitrate N + Nitrite N(mg/L) (Max)" required="required" />
+		<input type="text" name="interview_score9" placeholder="Fecal Coliform (MPN/100ml) (Min)" required="required" />
+		<input type="text" name="interview_score10" placeholder="Fecal Coliform (MPN/100ml) (Max)" required="required" />
+		<input type="text" name="interview_score11" placeholder="Total Coliform (MPN/100ml) (Min)" required="required" />
+		<input type="text" name="interview_score12" placeholder="Total Coliform (MPN/100ml) (Max)" required="required" />
+		<input type="text" name="interview_score13" placeholder="Name of State" required="required" />
+     </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <h1>{{ prediction_text }}</h1>
+   <h1>{{ note }}</h1>
+   <h1>{{ suggestion }}</h1>
+
+
+</body>
+</html>
